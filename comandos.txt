@@ -1,0 +1,4 @@
+mudar credenciais no config
+npx sequelize db:create
+
+node index.js

@@ -37,10 +37,32 @@ button{
   background-color: #DA3F67;
   font-weight: bold;
   font-size:14pt;
-  cursor: pointer;
   transition: all ease-in-out .3s;
 }
 
-button:hover{
+button:disabled{
+  background-color: #171717;
+  color:#555;
+  cursor: not-allowed;
+  pointer-events: all !important;
+
+}
+
+button:hover:enabled{
   background-color: #EB5967;
+  cursor: pointer;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #EB5967;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #EB5967;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #EB5967;
 }

@@ -15,7 +15,7 @@
 }
 
 .comment{
-  width: 40vw;
+  width: 35vw;
   display: flex;
   align-items: center;
   justify-content:space-between;
@@ -28,8 +28,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  margin-left: .25rem;
+  width: 6px;
+ 
 }
 
 ::-webkit-scrollbar-track {

@@ -27,7 +27,7 @@ const List = () => {
           {/* <p>{coments[0].content}</p> */}
 
           {coments ? (
-            coments.map((coment) => (
+            coments.slice(0).reverse().map((coment) => (
               <div className="comment" key={coment.id}>
                 <p>{coment.content} </p>
                 <img src={sound} alt="" />

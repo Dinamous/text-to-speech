@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 *{
   margin: 0;
   padding:0;
 }
 
 body{
-  background-color: #001220;
+  background-color: #191919;
+  font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -14,12 +16,32 @@ body{
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  background-image: url("./assets/wave.svg");
+  /*background-image: url("./assets/wave.svg");*/
 }
 
 
 h1{
   color:white;
   text-align: center;
-  padding: 1rem;
+  padding-top: 2rem;
+}
+
+main{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 100%;
+}
+
+.content{
+  margin-top: 5vh;
+  background-color: #232323;
+  display: flex;
+  width: 80%;
+  height: 60vh;
+  border-radius: 10px;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
 }

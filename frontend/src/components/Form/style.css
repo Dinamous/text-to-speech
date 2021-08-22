@@ -1,0 +1,46 @@
+.content-form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content:space-between;
+  width: 40vw;
+}
+
+.content-form form textarea{
+  width: 30vw;
+  height: 40vh;
+  outline: none;
+  resize: none;
+  padding:1rem;
+  background-color:#151515;
+  color:white;
+
+  border: 1px solid #191919;
+  border-radius: 5px;
+}
+
+
+
+textarea:focus {
+  outline: none !important;
+  border:1px solid red;
+  box-shadow: 0 0 10px #eb5967;
+}
+
+button{
+  border: none;
+  outline: none !important;
+  margin:0;
+  padding:1rem;
+  width: 30vw;
+  border-radius: 5px;
+  background-color: #DA3F67;
+  font-weight: bold;
+  font-size:14pt;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+
+button:hover{
+  background-color: #EB5967;
+}

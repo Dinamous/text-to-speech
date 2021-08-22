@@ -1,9 +1,22 @@
 const express = require("express")
 const {sequelize, Coment} =  require('./models');
+const cors  = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors({origin:true,credentials: true}));
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization');
+  if (req.method === "OPTIONS") {
+      return res.status(200).end();
+  } else {
+      next();
+  }
+});
 
 app.post('/coments', async(req,res)=>{
   const {content} = req.body;
@@ -16,7 +29,7 @@ app.post('/coments', async(req,res)=>{
   }catch(e){
     console.log(e);
     return res.status(500).json(e);
-  }
+  }app.use(cors({origin:true,credentials: true}));
 })
 
 app.get('/coments', async(req,res) =>{

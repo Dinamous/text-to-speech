@@ -10,7 +10,7 @@
 .scroll{
 
   height:55vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: visible;
 }
 
@@ -41,4 +41,8 @@
   border-radius: 5px;
   background-color:#DA3F67;
   ; 
+}
+
+.vazio{
+  margin: 2rem 0;
 }

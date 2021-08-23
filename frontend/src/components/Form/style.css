@@ -27,7 +27,7 @@ textarea:focus {
   box-shadow: 0 0 10px #eb5967;
 }
 
-button{
+.submitbtn{
   border: none;
   outline: none !important;
   margin:0;
@@ -40,7 +40,7 @@ button{
   transition: all ease-in-out .3s;
 }
 
-button:disabled{
+.submitbtn:disabled{
   background-color: #171717;
   color:#555;
   cursor: not-allowed;
@@ -48,7 +48,7 @@ button:disabled{
 
 }
 
-button:hover:enabled{
+.submitbtn:hover:enabled{
   background-color: #EB5967;
   cursor: pointer;
 }

@@ -26,7 +26,7 @@ exports.TPS = function (coment,id){
   .synthesize(synthesizeParams)
   .then(response => {
     const audio = response.result;
-    audio.pipe(fs.createWriteStream(__dirname+'/audio/audioTSP.mp3'));
+    audio.pipe(fs.createWriteStream(__dirname+'/../../frontend/src/audio/audioTSP.mp3'));
   })
   .catch(err => {
     console.log('error:', err);

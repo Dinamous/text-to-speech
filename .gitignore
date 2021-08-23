@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+backend/src/audio/*
 
 # production
 /build

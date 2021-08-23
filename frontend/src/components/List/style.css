@@ -26,6 +26,21 @@
   border: 1px solid #171717;
   font-weight: 100;
 }
+.comment .soundbtn{
+  outline: none !important;
+  border: none ;
+  border-radius:5px;
+  max-width: 4rem;
+  max-height: 3rem;
+  padding: .5rem;
+  background-color: #252525;
+  margin: 0;
+}
+
+.comment .soundbtn:hover{
+  background-color: #2a2a2a !important;
+cursor: pointer;
+}
 
 ::-webkit-scrollbar {
   width: 6px;

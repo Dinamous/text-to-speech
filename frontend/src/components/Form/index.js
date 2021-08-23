@@ -3,10 +3,10 @@ import "./style.css";
 import axios from "axios";
 
 const Form = () => {
-  const [coment, setComent] = useState("");
+  
   const [textarea, setTextarea] = useState("");
   function handleChange(e) {
-    setComent(e.target.value);
+   
     setTextarea(e.target.value);
   }
 
@@ -34,7 +34,7 @@ const Form = () => {
           wrap="off"
         ></textarea>
       </form>
-      <button type="submit" disabled={!textarea} onClick={AddComent}>
+      <button className="submitbtn" type="submit" disabled={!textarea} onClick={AddComent}>
         Adicionar Comentário
       </button>
     </div>

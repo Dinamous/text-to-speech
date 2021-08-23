@@ -1,4 +1,6 @@
 mudar credenciais no config
 npx sequelize db:create
 
+inserir credencias no .env
 node index.js
+

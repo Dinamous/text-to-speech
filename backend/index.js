@@ -1,6 +1,7 @@
 const express = require("express")
 const {sequelize, Coment} =  require('./models');
 const cors  = require('cors');
+const textToSpeech = require('./src/textToSpeech')
 
 const app = express();
 app.use(express.json());
@@ -37,6 +38,16 @@ app.get('/coments', async(req,res) =>{
   const coments = await Coment.findAll();
   return res.json(coments);
 
+
+})
+
+app.get('/coments/:id', async(req,res) =>{
+
+  const coment = await Coment.findOne({where: {id: req.params.id}});
+   
+  textToSpeech.TPS(coment.content)
+
+  return res.json(coment);
 
 })
 

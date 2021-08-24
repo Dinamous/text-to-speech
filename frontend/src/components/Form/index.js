@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 
-const Form = () => {
+const Form = ({UpdateComent}) => {
   
   const [textarea, setTextarea] = useState("");
   function handleChange(e) {
-   
     setTextarea(e.target.value);
   }
 
@@ -15,9 +14,8 @@ const Form = () => {
     axios.post("http://localhost:5000/coments", {
       content: textarea ,
     });
-
-    console.log(typeof(textarea))
     setTextarea('');
+    UpdateComent()
   }
 
   return (
@@ -34,7 +32,9 @@ const Form = () => {
           wrap="off"
         ></textarea>
       </form>
-      <button className="submitbtn" type="submit" disabled={!textarea} onClick={AddComent}>
+      <button className="submitbtn" type="submit" 
+      // disabled={!textarea} 
+      onClick={AddComent}>
         Adicionar Comentário
       </button>
     </div>

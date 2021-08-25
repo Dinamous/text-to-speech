@@ -1,15 +1,21 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import List from "./components/List";
 
 function App() {
-  const [coment, setcoment] = useState(0)
+  const [coment, setComent] = useState([])
 
-const handleComent = () => {
-  setcoment(coment +1);
-  console.log("atualizou "+coment)
+async  function handleComent (){
+ const data =  await axios.get("http://localhost:5000/coments")
+  setComent(data.data)
 }
+
+useEffect(() => {
+  handleComent()
+
+}, [])
 
   return (
     <div className="App">
@@ -19,8 +25,7 @@ const handleComent = () => {
         <div className="content">
           <Form  UpdateComent={handleComent}/>
           <List ComentUpdate={coment}/>
-          {/* <audio media-player="audioPlayer" controls="controls" preload="auto" id="audio"
-                crossOrigin="anonymous" src={audio}></audio> */}
+          
         </div>
       </main>
 

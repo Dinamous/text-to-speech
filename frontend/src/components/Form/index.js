@@ -9,11 +9,12 @@ const Form = ({UpdateComent}) => {
     setTextarea(e.target.value);
   }
 
-   function AddComent() {
+  async function AddComent() {
 
-    axios.post("http://localhost:5000/coments", {
+    await axios.post("http://localhost:5000/coments", {
       content: textarea ,
     });
+
     setTextarea('');
     UpdateComent()
   }
@@ -33,7 +34,7 @@ const Form = ({UpdateComent}) => {
         ></textarea>
       </form>
       <button className="submitbtn" type="submit" 
-      // disabled={!textarea} 
+      disabled={!textarea} 
       onClick={AddComent}>
         Adicionar Comentário
       </button>

@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 import axios from "axios";
 import { Howl } from "howler";
 import sound from "../../assets/sound.svg";
 
+import SoundFile from "../../audio/audioTSP.mp3";
+
 const List = ({ ComentUpdate }) => {
-  const [coments, setComents] = useState(null);
-
-  useEffect(() => {
-    const getComents = async () => {
-      await axios.get("http://localhost:5000/coments").then((response) => {
-        setComents(response.data);
-        console.log(ComentUpdate)
-      });
-    };
-    getComents();
-  
-  }, [ComentUpdate]);
-
-
-
-
   function soundPlay(src) {
     const voice = new Howl({
       src,
@@ -31,11 +17,9 @@ const List = ({ ComentUpdate }) => {
   }
 
   async function ClickAudio(id) {
-    axios.get(`http://localhost:5000/coments/${id}`).then(function (res) {
-      const audioPath = import(`../../audio/audioTSP-1.mp3`).default;
+    await axios.get(`http://localhost:5000/coments/${id}`);
 
-      soundPlay(audioPath);
-    });
+    soundPlay(SoundFile);
   }
 
   return (
@@ -43,9 +27,8 @@ const List = ({ ComentUpdate }) => {
       <div className="content-list">
         <h4>Lista de Comentários</h4>
         <div className="scroll">
-          {coments ? (
-            coments
-              .slice(0)
+          {ComentUpdate ? (
+            ComentUpdate.slice(0)
               .reverse()
               .map((coment) => (
                 <div className="comment" key={coment.id}>

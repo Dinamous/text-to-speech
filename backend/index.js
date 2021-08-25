@@ -30,8 +30,10 @@ app.post('/coments', async(req,res)=>{
   }catch(e){
     console.log(e);
     return res.status(500).json(e);
-  }app.use(cors({origin:true,credentials: true}));
+  }
 })
+
+app.use(cors({origin:true,credentials: true}));
 
 app.get('/coments', async(req,res) =>{
 
@@ -45,7 +47,7 @@ app.get('/coments/:id', async(req,res) =>{
 
   const coment = await Coment.findOne({where: {id: req.params.id}});
    
-  textToSpeech.TPS(coment.content,coment.id)
+  await textToSpeech.TPS(coment.content,coment.id)
 
   return res.json(coment);
 

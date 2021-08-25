@@ -5,7 +5,7 @@ const fs = require('fs');
 const TextToSpeechV1 = require('ibm-watson/text-to-speech/v1');
 const { IamAuthenticator } = require('ibm-watson/auth');
 
-exports.TPS = function (coment,id){
+exports.TPS = async function (coment,id){
 
   console.log("comente:" + coment)
 
@@ -22,14 +22,23 @@ exports.TPS = function (coment,id){
     voice: 'pt-BR_IsabelaVoice',
   };
   
-  textToSpeech
-  .synthesize(synthesizeParams)
-  .then(response => {
-    const audio = response.result;
-    audio.pipe(fs.createWriteStream(__dirname+'/../../frontend/src/audio/audioTSP-'+id+'.mp3'));
-  })
-  .catch(err => {
-    console.log('error:', err);
-  });
+  // textToSpeech
+  // .synthesize(synthesizeParams)
+  // .then(async (response) => {
+  //   const audio = response.result;
+  //    audio.pipe(await fs.createWriteStream(__dirname+'/../../frontend/src/audio/audioTSP.mp3'));
+  // })
+  // .catch(err => {
+  //   console.log('error:', err);
+  // });
+
+  try{
+    const response = await textToSpeech.synthesize(synthesizeParams)
+    const  audio = response.result
+    audio.pipe(await fs.createWriteStream(__dirname+'/../../frontend/src/audio/audioTSP.mp3'))
+  }catch(err){
+    console.log(err)
+
+  }
   
 }

@@ -4,9 +4,15 @@ import axios from "axios";
 import { Howl } from "howler";
 import sound from "../../assets/sound.svg";
 
+//o arquivo de audio é sempre substituído
+//assim que o usuário pressiona outro play audio
+//pode ocorrer um delay devido o consumo da API
 import SoundFile from "../../audio/audioTSP.mp3";
 
 const List = ({ ComentUpdate }) => {
+
+  //esta função é responável por reproduzir o audio gerado
+  //pelo backend, selecionado pelo usuário
   function soundPlay(src) {
     const voice = new Howl({
       src,
@@ -16,6 +22,8 @@ const List = ({ ComentUpdate }) => {
     voice.play();
   }
 
+  //esta função pe chamada toda vez que o usuário
+  //aciona o botão de play do comentário
   async function ClickAudio(id) {
     await axios.get(`http://localhost:5000/coments/${id}`);
 

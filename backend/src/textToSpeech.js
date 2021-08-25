@@ -7,8 +7,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 
 exports.TPS = async function (coment,id){
 
-  console.log("comente:" + coment)
-
+  //autenticação da API da IBM Watson Text-to-speech
+  //as credenciais vieram do arquivo .env 
+  //como explicado no README.md
   const textToSpeech = new TextToSpeechV1({
     authenticator: new IamAuthenticator({
       apikey: process.env.API_KEY
@@ -16,22 +17,15 @@ exports.TPS = async function (coment,id){
     serviceUrl: process.env.API_URL,
   });
   
+  //criando o objeto para a sintentização do arquivo
   const synthesizeParams = {
     text: coment,
     accept: 'audio/mp3',
     voice: 'pt-BR_IsabelaVoice',
   };
   
-  // textToSpeech
-  // .synthesize(synthesizeParams)
-  // .then(async (response) => {
-  //   const audio = response.result;
-  //    audio.pipe(await fs.createWriteStream(__dirname+'/../../frontend/src/audio/audioTSP.mp3'));
-  // })
-  // .catch(err => {
-  //   console.log('error:', err);
-  // });
 
+  //salvando o buffer de aúdio em um arquivo local
   try{
     const response = await textToSpeech.synthesize(synthesizeParams)
     const  audio = response.result

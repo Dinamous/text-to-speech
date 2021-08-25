@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({origin:true,credentials: true}));
 
+//autorizações para o header e utilização da API local para o exterior
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Origin', req.headers.origin);
@@ -18,7 +19,10 @@ app.use(function (req, res, next) {
       next();
   }
 });
+app.use(cors({origin:true,credentials: true}));
 
+
+//criação das rotas da API
 app.post('/coments', async(req,res)=>{
   const {content} = req.body;
 
@@ -33,8 +37,8 @@ app.post('/coments', async(req,res)=>{
   }
 })
 
-app.use(cors({origin:true,credentials: true}));
 
+//rota para listagem de comentários
 app.get('/coments', async(req,res) =>{
 
   const coments = await Coment.findAll();
@@ -43,10 +47,13 @@ app.get('/coments', async(req,res) =>{
 
 })
 
+
+//rota para a geração de arquivo audio
 app.get('/coments/:id', async(req,res) =>{
 
   const coment = await Coment.findOne({where: {id: req.params.id}});
    
+  //função responsável pela geração do arquivo
   await textToSpeech.TPS(coment.content,coment.id)
 
   return res.json(coment);

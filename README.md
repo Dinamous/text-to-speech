@@ -52,7 +52,7 @@ Consistindo na construção de uma arquitetura com Backend e Frontend, com a int
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
  
 
-  <img alt="Imagem do Projeto" title="Text to Speech" src="./images/layout.jpg" width="600px">
+  <img alt="Imagem do Projeto" title="Text to Speech" src="./images/layout.png" width="600px">
 </p>
 
 ---
